@@ -11,8 +11,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text timerText;
     [SerializeField] private GameObject gameComplete;
 
+    //public List<DifferentObject> DifferentObjectsList {get {return differentObjectsList;}}
+
+
     public GameObject GameComplete { get {return gameComplete;}}//getter
     public Text TimerText { get { return timerText;}}
+
+    private LevelManager levelManager;
 
     private void Awake()
     {
@@ -20,8 +25,10 @@ public class UIManager : MonoBehaviour
         else if(instance != null) Destroy(gameObject);
     }
 
-    public void NextButton()
+    /*public void NextButton()
     {
+        Debug.Log("button");
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    }*/
 }

@@ -9,15 +9,23 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
 
     [SerializeField]//editable for unity
+    private int levelCount;
+
+    private ImageHolder imageHolder;
+    private ImageHolder newImageHolder;
+
+    public int currentLevel = 0;
+
+    [SerializeField]//editable for unity
     private float timeLimit;//max time
 
     [SerializeField]//editable for unity
     private ImageHolder imageHolderPrefab;//all available different objs in the scene
 
-    private List<DifferentObject> activeObjectsList;
-
     [SerializeField]//editable for unity
-    private int maxCount;
+    private List<ImageHolder> imageHolderPrefabList;//all of the levels
+
+    private List<DifferentObject> activeObjectsList;
 
     private int totalObjectsFound = 0;
     private float currentTime = 0;
@@ -39,7 +47,18 @@ public class LevelManager : MonoBehaviour
 
     void AssignObjects()
     {
-        ImageHolder imageHolder = Instantiate(imageHolderPrefab, Vector3.zero, Quaternion.identity);
+        if(imageHolder)
+        {
+            
+            newImageHolder = Instantiate(imageHolderPrefabList[currentLevel], Vector3.zero, Quaternion.identity);//no rotation instantiation
+            Destroy(imageHolder);
+            imageHolder = newImageHolder;
+            Debug.Log("Destroy");
+        }
+        else
+        {
+            imageHolder = Instantiate(imageHolderPrefabList[currentLevel], Vector3.zero, Quaternion.identity);//no rotation instantiation
+        } 
         currentTime = timeLimit;
         UIManager.instance.TimerText.text = "" + currentTime;
         totalObjectsFound = 0;
@@ -83,7 +102,7 @@ public class LevelManager : MonoBehaviour
                     Debug.Log(hit.collider.gameObject.name);
 
                     hit.collider.gameObject.GetComponent<Collider2D>().enabled = false;
-                    hit.collider.gameObject.GetComponent<Image>().enabled = true;
+                    hit.collider.gameObject.GetComponent<SpriteRenderer>().enabled = true;
 
                     for(int i = 0; i < activeObjectsList.Count; i++)//remove from active list
                     {
@@ -96,9 +115,10 @@ public class LevelManager : MonoBehaviour
 
                     totalObjectsFound++;
 
-                    if(totalObjectsFound >= maxCount)
+                    if(totalObjectsFound >= imageHolderPrefabList[currentLevel].maxCount)
                     {
                         Debug.Log("Level Complete");
+                        currentLevel++;
                         //UIManager.instance.GameComplete.EndText.text = "Level Complete";
                         UIManager.instance.GameComplete.SetActive(true);
                         gameStatus = GameStatus.NEXT;
@@ -120,6 +140,14 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void NextButton()
+    {
+        Debug.Log("button");
+        
+        AssignObjects();
+        
+    }
+
 }
 
 [System.Serializable]//editable for unity
@@ -127,7 +155,7 @@ public class DifferentObject
 {
     public string name;
     public GameObject difference;
-    public bool makeHidden = true;
+    //public bool makeHidden = true;
 }
 
 public enum GameStatus

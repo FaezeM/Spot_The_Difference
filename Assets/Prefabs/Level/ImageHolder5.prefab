@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512645819046190996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8420513, y: -1.4992127, z: -57.943546}
+  m_LocalPosition: {x: 0, y: -2, z: -57.943546}
   m_LocalScale: {x: 0.5077986, y: 0.48781595, z: 1}
   m_Children:
   - {fileID: 1512645820425584352}
@@ -112,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512645819184772378}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8560512, y: 2.1477873, z: -57.943546}
+  m_LocalPosition: {x: 0, y: 1.5, z: -57.943546}
   m_LocalScale: {x: 0.5023417, y: 0.48734355, z: 1}
   m_Children: []
   m_Father: {fileID: 1512645819187855507}
@@ -217,19 +217,14 @@ MonoBehaviour:
   differentObjectsList:
   - name: Eyes
     difference: {fileID: 1512645820425584353}
-    makeHidden: 0
   - name: Fish
     difference: {fileID: 1512645820329164939}
-    makeHidden: 0
   - name: Kelp
     difference: {fileID: 1512645819926705664}
-    makeHidden: 0
   - name: Fish2
     difference: {fileID: 1512645819909493485}
-    makeHidden: 0
   - name: Ship
     difference: {fileID: 1512645819306716822}
-    makeHidden: 0
   maxCount: 5
 --- !u!1 &1512645819306716822
 GameObject:

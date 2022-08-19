@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5899423024664043327}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8420513, y: -1.4992127, z: -57.943546}
+  m_LocalPosition: {x: 0, y: -2, z: -57.943546}
   m_LocalScale: {x: 0.5077986, y: 0.48781595, z: 1}
   m_Children:
   - {fileID: 5899423025967939147}
@@ -244,19 +244,14 @@ MonoBehaviour:
   differentObjectsList:
   - name: Gifts
     difference: {fileID: 5899423025967939146}
-    makeHidden: 0
   - name: Square
     difference: {fileID: 5899423026064457760}
-    makeHidden: 0
   - name: Hat
     difference: {fileID: 5899423026467042987}
-    makeHidden: 0
   - name: Baloons
     difference: {fileID: 5899423026483122758}
-    makeHidden: 0
   - name: Window
     difference: {fileID: 5899423024937414205}
-    makeHidden: 0
   maxCount: 5
 --- !u!1 &5899423025062409649
 GameObject:
@@ -283,7 +278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5899423025062409649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8560512, y: 2.1477873, z: -57.943546}
+  m_LocalPosition: {x: 0, y: 1.5, z: -57.943546}
   m_LocalScale: {x: 0.5023417, y: 0.48734355, z: 1}
   m_Children: []
   m_Father: {fileID: 5899423025057103928}

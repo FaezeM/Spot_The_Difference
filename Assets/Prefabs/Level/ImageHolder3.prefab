@@ -124,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922822568286398268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8560512, y: 2.1477873, z: -57.943546}
+  m_LocalPosition: {x: 0, y: 1.5, z: -57.943546}
   m_LocalScale: {x: 0.5023417, y: 0.48734355, z: 1}
   m_Children: []
   m_Father: {fileID: 922822568291619509}
@@ -229,19 +229,14 @@ MonoBehaviour:
   differentObjectsList:
   - name: Dad
     difference: {fileID: 922822569191697607}
-    makeHidden: 0
   - name: Pig
     difference: {fileID: 922822569296614061}
-    makeHidden: 0
   - name: Cat
     difference: {fileID: 922822569699419174}
-    makeHidden: 0
   - name: Horse
     difference: {fileID: 922822569684304075}
-    makeHidden: 0
   - name: Tree
     difference: {fileID: 922822568142044336}
-    makeHidden: 0
   maxCount: 5
 --- !u!1 &922822568416251314
 GameObject:
@@ -268,7 +263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922822568416251314}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8420513, y: -1.4992127, z: -57.943546}
+  m_LocalPosition: {x: 0, y: -2, z: -57.943546}
   m_LocalScale: {x: 0.5077986, y: 0.48781595, z: 1}
   m_Children:
   - {fileID: 922822569191697606}

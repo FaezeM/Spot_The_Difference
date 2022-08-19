@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class LevelManager : MonoBehaviour
         {
             
             newImageHolder = Instantiate(imageHolderPrefabList[currentLevel], Vector3.zero, Quaternion.identity);//no rotation instantiation
-            Destroy(imageHolder);
+            Destroy(imageHolder.gameObject);
             imageHolder = newImageHolder;
             Debug.Log("Destroy");
         }
@@ -143,8 +144,10 @@ public class LevelManager : MonoBehaviour
     public void NextButton()
     {
         Debug.Log("button");
-        
-        AssignObjects();
+        if(currentLevel + 1 == levelCount)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        else
+            AssignObjects();
         
     }
 

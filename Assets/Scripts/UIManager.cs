@@ -10,12 +10,14 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Text timerText;
     [SerializeField] private GameObject gameComplete;
+    [SerializeField] private GameObject levelFailed;
 
     //public List<DifferentObject> DifferentObjectsList {get {return differentObjectsList;}}
 
 
     public GameObject GameComplete { get {return gameComplete;}}//getter
     public Text TimerText { get { return timerText;}}
+    public GameObject LevelFailed { get { return levelFailed;}}
 
     private LevelManager levelManager;
 

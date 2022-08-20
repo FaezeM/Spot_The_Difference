@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Spot the difference.unity
     guid: 1f55a1542a956164fb1645dc91639c43
+  - enabled: 1
+    path: Assets/Scenes/HighScores.unity
+    guid: ffc1db6c48e005140a6ffc59b0e5b880
   m_configObjects: {}

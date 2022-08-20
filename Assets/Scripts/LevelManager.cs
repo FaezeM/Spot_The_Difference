@@ -10,7 +10,16 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
 
     [SerializeField]//editable for unity
-    private int levelCount;
+    private int levelCount = 5;
+
+    [SerializeField]
+    private int score = 0;
+
+    [SerializeField]
+    private int maxFaults = 10;
+
+    [SerializeField]
+    private int faults = 0;
 
     private ImageHolder imageHolder;
     private ImageHolder newImageHolder;
@@ -118,10 +127,33 @@ public class LevelManager : MonoBehaviour
 
                     if(totalObjectsFound >= imageHolderPrefabList[currentLevel].maxCount)
                     {
-                        Debug.Log("Level Complete");
-                        currentLevel++;
-                        //UIManager.instance.GameComplete.EndText.text = "Level Complete";
-                        UIManager.instance.GameComplete.SetActive(true);
+                        if(currentLevel == levelCount)
+                        {
+                            UIManager.instance.YouWin.SetActive(true);
+                            gameStatus = GameStatus.NEXT;
+                        }
+                        else
+                        {
+                            if(currentTime >= timeLimit / 2)
+                                score += 30;
+                            Debug.Log("Level Complete");
+                            currentLevel++;
+                            //UIManager.instance.GameComplete.EndText.text = "Level Complete";
+                            UIManager.instance.GameComplete.SetActive(true);
+                            gameStatus = GameStatus.NEXT;
+                        }
+                        
+                    }
+                }
+                else// if(hit && hit.collider == null)
+                {
+                    score -= 5;
+                    faults++;
+                    Debug.Log("false");
+                    if(faults >= maxFaults)
+                    {
+                        Debug.Log("Level Failed");
+                        UIManager.instance.LevelFailed.SetActive(true);
                         gameStatus = GameStatus.NEXT;
                     }
                 }
@@ -135,7 +167,7 @@ public class LevelManager : MonoBehaviour
             {
                 Debug.Log("Level Failed");
                 //UIManager.instance.GameComplete.EndText.text = "Level Failed";
-                UIManager.instance.GameComplete.SetActive(true);
+                UIManager.instance.LevelFailed.SetActive(true);
                 gameStatus = GameStatus.NEXT;
             }
         }
@@ -145,7 +177,7 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("button");
         if(currentLevel + 1 == levelCount)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         else
             AssignObjects();
     }
